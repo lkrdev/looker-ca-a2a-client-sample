@@ -1,0 +1,39 @@
+{
+  "name": "looker_agent",
+  "description": "Looker AI agent",
+  "version": "1.0.0",
+  "url": "https://<LOOKER_URL>/api/4.0/a2a/agents/<AGENT_ID>",
+  "capabilities": {
+    "streaming": true
+  },
+  "defaultInputModes": [
+    "text/plain"
+  ],
+  "defaultOutputModes": [
+    "text/plain"
+  ],
+  "skills": [
+    {
+      "id": "conversational_analytics",
+      "name": "Conversational Analytics",
+      "description": "Query database/explore using natural language",
+      "tags": [
+        "query",
+        "data"
+      ]
+    }
+  ],
+  "securitySchemes": {
+    "bearerAuth": {
+      "type": "http",
+      "scheme": "bearer",
+      "bearerFormat": "JWT",
+      "description": "Standard Bearer Authorization Header containing Looker access token"
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ]
+}

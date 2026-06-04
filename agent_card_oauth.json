@@ -1,0 +1,47 @@
+{
+  "name": "looker_agent",
+  "description": "Looker AI agent",
+  "version": "1.0.0",
+  "url": "https://<LOOKER_URL>/api/4.0/a2a/agents/<AGENT_ID>",
+  "capabilities": {
+    "streaming": true
+  },
+  "defaultInputModes": [
+    "text/plain"
+  ],
+  "defaultOutputModes": [
+    "text/plain"
+  ],
+  "skills": [
+    {
+      "id": "conversational_analytics",
+      "name": "Conversational Analytics",
+      "description": "Query database/explore using natural language",
+      "tags": [
+        "query",
+        "data"
+      ]
+    }
+  ],
+  "securitySchemes": {
+    "lookerOAuth": {
+      "type": "oauth2",
+      "flows": {
+        "authorizationCode": {
+          "authorizationUrl": "https://<LOOKER_URL>/auth",
+          "tokenUrl": "https://<LOOKER_URL>/api/token",
+          "scopes": {
+            "cors-api": "Allows query execution via CORS/API on behalf of the user"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "lookerOAuth": [
+        "cors-api"
+      ]
+    }
+  ]
+}
