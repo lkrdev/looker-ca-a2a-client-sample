@@ -1,0 +1,9 @@
+# Local virtual environment
+.venv/
+
+# Python byte-compiled files
+__pycache__/
+*.pyc
+
+# Local environment variables containing sensitive secrets
+.env

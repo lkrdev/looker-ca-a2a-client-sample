@@ -65,29 +65,51 @@ LOOKER_A2A_TOKEN="your-fetched-bearer-token-here"
 
 ## Running the Client
 
-### Option A: Using `uv` (Recommended)
+The project is packaged and exposes a command-line interface called `a2a-client` using `typer`.
 
-You can run the script instantly with `uv`, which handles environment creation and dependency installation automatically:
+### Option A: Running with `uv` (Recommended)
+
+Run commands instantly using `uv run`:
 
 ```bash
-uv run main.py
+# View help options
+uv run a2a-client --help
+
+# View chat subcommand help options
+uv run a2a-client chat --help
+
+# Chat with the A2A agent by sending a query
+uv run a2a-client chat --prompt "show me total sales for FW42 and break it down by geo"
 ```
 
-### Option B: Using standard Python Virtual Environment
+### Option B: Running with standard Python Virtual Environment
 
-1.  Create and activate virtual environment:
-    ```bash
-    python3 -m venv .venv
-    source .venv/bin/activate
-    ```
-2.  Install dependencies:
-    ```bash
-    pip install -e .
-    ```
-3.  Run the client:
-    ```bash
-    python main.py
-    ```
+1. Create and activate a virtual environment:
+   ```bash
+   python3 -m venv .venv
+   source .venv/bin/activate
+   ```
+2. Install the package in editable mode:
+   ```bash
+   pip install -e .
+   ```
+3. Run the installed command directly:
+   ```bash
+   a2a-client chat --prompt "show me total sales for FW42 and break it down by geo"
+   ```
+
+### CLI Options
+
+The `chat` command supports the following options:
+
+*   `--prompt` / `-p` (Required): The query to send to the A2A agent.
+*   `--invocation-id` / `-i` (Default: `test_invocation_123`): Unique identifier for the invocation session/interaction.
+*   `--app-name` (Default: `test_app`): App name identifier.
+*   `--user-id` (Default: `test_user`): User ID.
+*   `--session-id` (Default: `test_session_id`): Session ID.
+*   `--agent-card` (Default: `agent_card.json`): Path to the agent card JSON configuration file.
+*   `--verbose` / `-v`: Enable verbose info logging.
+*   `--debug`: Enable full debug logging.
 
 ---
 
