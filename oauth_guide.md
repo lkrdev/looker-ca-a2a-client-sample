@@ -13,7 +13,7 @@ For a complete, working reference implementation of a Python backend executing t
 2. **Authorize**: The Client Application redirects the user's browser to the Looker Authorization URL. The user logs in and approves the `cors-api` scope.
 3. **Authorization Callback**: Looker redirects the user back to the Client Application callback URL with an temporary `authorization_code`.
 4. **Token Exchange**: The Client Application backend makes a direct `POST` request to Looker's token endpoint (`/api/token`), exchanging the code (along with the original `code_verifier`) for a Bearer `access_token`.
-5. **A2A Execution**: The Client Application wraps the user's token in the HTTP Authorization headers and calls the remote A2A Agent (`message/send`).
+5. **A2A Execution**: The Client Application wraps the user's token in the HTTP Authorization headers and calls the remote A2A Agent.
 6. **Results**: The A2A Agent executes queries against Looker and streams the response back to the Client Application, which displays the results to the user.
 
 
